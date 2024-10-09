@@ -10,11 +10,11 @@ let currentMonth = currentDate.getMonth();
 year.innerText = currentYear;
 
 function calcLeapYear(year) {
-  if (year % 400 == 0) {
+  if (year % 400 === 0) {
     return true;
-  } else if (year % 100 == 0) {
+  } else if (year % 100 === 0) {
     return false;
-  } else if (year % 4 == 0) {
+  } else if (year % 4 === 0) {
     return true;
   } else {
     return false;
@@ -23,7 +23,7 @@ function calcLeapYear(year) {
 
 const engMonthName = [
   "JANUARY",
-  "FEBRARUY",
+  "FEBRUARY",
   "MARCH",
   "APRIL",
   "MAY",
@@ -39,17 +39,13 @@ const engMonthName = [
 month.innerText = engMonthName[currentMonth];
 
 function getFirstDayOfWeek(year, month) {
-  month = month + 1;
-  if (month < 10) {
-    month = "0" + month;
-  }
-  return new Date(year + "-" + month + "-01").getDay();
+  return new Date(year, month, 1).getDay();
 }
 
 function changeYearMonth(year, month) {
   let monthDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  if (month == 2 && calcLeapYear(year)) {
+  if (month == 1 && calcLeapYear(year)) {
     monthDay[1] = 29;
   }
 
@@ -60,7 +56,7 @@ function changeYearMonth(year, month) {
     arr_calender.push("");
   }
 
-  for (let i = 1; i <= monthDay[month - 1]; i++) {
+  for (let i = 1; i <= monthDay[month]; i++) {
     arr_calender.push(String(i));
   }
 
@@ -108,9 +104,9 @@ const monthButtons = monthPopup.querySelectorAll("button");
 
 monthButtons.forEach(function (btn) {
   btn.addEventListener("click", function () {
-    const selectedMonth = parseInt(this.getAttribute("data-month")); 
-    currentMonth = selectedMonth; 
-    month.innerText = engMonthName[currentMonth]; 
+    const selectedMonth = parseInt(this.getAttribute("data-month"));
+    currentMonth = selectedMonth;
+    month.innerText = engMonthName[currentMonth];
     changeYearMonth(currentYear, currentMonth);
     monthPopup.style.display = "none";
   });

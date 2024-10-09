@@ -81,3 +81,13 @@ tbody > tr {
   font-size: 16px;
   color: #fb773c;
 }
+
+td:nth-child(1) {
+  color: #eb3678;
+}
+
+td:nth-child(7) {
+  color: #667bc6;
+}
+
+
