@@ -1,0 +1,13 @@
+.background-color-pupple {
+  background-color: #7e60bf;
+}
+
+.border-top-left-4px {
+  border-radius: 8px 0 0 0;
+}
+
+.border-top-right-8px {
+  border-radius: 0 8px 0 0;
+}
+
+
