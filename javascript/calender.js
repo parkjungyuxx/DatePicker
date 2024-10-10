@@ -1,8 +1,10 @@
-let year = document.getElementById("year-btn");
+let year = document.getElementById("year-text");
 let month = document.getElementById("month-btn");
 let tbody = document.getElementById("tb_body");
 let currentDate = new Date();
 const monthPopup = document.getElementById("month-popup");
+const yearPopup = document.getElementById("year-popup");
+const yearBtn = document.getElementById("year-btn");
 
 let currentYear = currentDate.getFullYear();
 let currentMonth = currentDate.getMonth();
@@ -111,3 +113,29 @@ monthButtons.forEach(function (btn) {
     monthPopup.style.display = "none";
   });
 });
+
+function createYearButton(startYear, endYear) {
+  for (let year = startYear; year <= endYear; year++) {
+    let yearButton = document.createElement("button");
+    yearButton.innerText = year;
+    yearButton.setAttribute("data-year", year);
+    yearButton.addEventListener("click", function () {
+      currentYear = year;
+      yearBtn.innerText = year;
+      yearPopup.style.display = "none";
+      changeYearMonth(currentYear, currentMonth);
+    });
+    yearPopup.appendChild(yearButton);
+  }
+}
+createYearButton(1900, 2034);
+
+function selectYear(event) {
+  if (yearPopup.style.display === "none") {
+    yearPopup.style.display = "block";
+  } else {
+    yearPopup.style.display = "none";
+  }
+}
+
+yearBtn.addEventListener("click", selectYear);

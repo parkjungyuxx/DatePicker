@@ -57,10 +57,31 @@ tbody > tr {
   color: #fb773c;
 }
 
-/* #year-popup {
+#year-popup {
   display: none;
   position: absolute;
-} */
+  background-color: #bc8cf2;
+  text-align: start;
+  border-radius: 8px;
+  padding: 24px;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  line-height: 1.8;
+}
+
+#year-popup > button {
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+#year-popup > h3 {
+  font-weight: bold;
+}
 
 #month-popup {
   position: absolute;
@@ -89,5 +110,3 @@ td:nth-child(1) {
 td:nth-child(7) {
   color: #667bc6;
 }
-
-
